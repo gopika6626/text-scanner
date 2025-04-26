@@ -19,10 +19,10 @@ function App() {
     formData.append("file", selectedFile);
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/extract-text/", formData, {
+      const response = await axios.post("https://text-scanner-production.up.railway.app/extract-text/", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
-
+      
       setExtractedText(response.data.text);
       navigator.clipboard.writeText(response.data.text); // Copy to clipboard
       alert("Text copied to clipboard!");
